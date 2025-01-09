@@ -12,8 +12,12 @@ Basicamente, você precisa evitar os inimigos (creeps) pelo maior tempo possíve
 - Desvie dos creeps!
 - Tente bater seu próprio recorde de tempo!
 
-## Jogue Agora 
-Você pode jogar o jogo online pelo link:
-[Link para o jogo no Itch.io](https://google.com)
+## Como Rodar o Jogo Localmente
+Para clonar o repositório e rodar o jogo localmente, siga os passos abaixo: 
+1. Clone o repositório: ```sh git clone https://github.com/ApenasRyan/dodge-the-creaps
+2.Abra o projeto no Godot Engine:
+3.Abra o Godot Engine.
+4.Clique em Import e selecione o arquivo project.godot dentro do diretório do projeto.
+5.Inicie o jogo clicando em Run.
 
 Joga ai chefe! 😄
