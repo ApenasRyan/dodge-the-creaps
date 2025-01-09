@@ -12,6 +12,8 @@ Basicamente, você precisa evitar os inimigos (creeps) pelo maior tempo possíve
 - Desvie dos creeps!
 - Tente bater seu próprio recorde de tempo!
 
-## Jogue Agora Você pode jogar o jogo online pelo link: [Link para o jogo no Itch.io](https://google.com)
+## Jogue Agora 
+Você pode jogar o jogo online pelo link:
+[Link para o jogo no Itch.io](https://google.com)
 
 Joga ai chefe! 😄
