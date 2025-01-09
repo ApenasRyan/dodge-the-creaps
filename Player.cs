@@ -46,13 +46,13 @@ public partial class Player : Area2D
 		if (velocity.X != 0)
 		{
 			animatedSprite2D.Animation = "walk";
-			animatedSprite2D.FlipV = false;
-			animatedSprite2D.FlipH = velocity.X < 0;
+		 	animatedSprite2D.FlipV = false;
+		 	animatedSprite2D.FlipH = velocity.X < 0;
 		}
 		else
 		{
-			animatedSprite2D.Animation = "up";
-			animatedSprite2D.FlipV = velocity.Y > 0;
+		 	animatedSprite2D.Animation = "up";
+		 	animatedSprite2D.FlipV = velocity.Y > 0;
 		}
 
 		if (velocity.X < 0)
@@ -61,9 +61,9 @@ public partial class Player : Area2D
 		}
 		else
 		{
-			animatedSprite2D.FlipH = false;
+		 	animatedSprite2D.FlipH = false;
 		}
 
-		Hide();
+		//Hide();
 	}
 }
