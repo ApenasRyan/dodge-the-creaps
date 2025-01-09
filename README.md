@@ -13,11 +13,11 @@ Basicamente, você precisa evitar os inimigos (creeps) pelo maior tempo possíve
 - Tente bater seu próprio recorde de tempo!
 
 ## Como Rodar o Jogo Localmente
-Para clonar o repositório e rodar o jogo localmente, siga os passos abaixo: 
-1. Clone o repositório: ```sh git clone https://github.com/ApenasRyan/dodge-the-creaps
-2.Abra o projeto no Godot Engine:
-3.Abra o Godot Engine.
-4.Clique em Import e selecione o arquivo project.godot dentro do diretório do projeto.
-5.Inicie o jogo clicando em Run.
+Para clonar o repositório e rodar o jogo localmente, siga os passos abaixo: <br>
+1. Clone o repositório: git clone https://github.com/ApenasRyan/dodge-the-creaps <br>
+2.Abra o projeto no Godot Engine. <br>
+3.Abra o Godot Engine. <br>
+4.Clique em Import e selecione o arquivo project.godot dentro do diretório do projeto. <br>
+5.Inicie o jogo clicando em Run. <br> <br>
 
 Joga ai chefe! 😄
