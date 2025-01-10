@@ -3,10 +3,27 @@ using Vector2 = Godot.Vector2;
 
 public partial class Player : Area2D
 {
+	private void OnBodyEntered(Node2D body)
+	{
+		Hide();
+		EmitSignal(SignalName.Hit);
+		GetNode<CollisionObject2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+	}
+
+	[Signal]
+	public delegate void HitEventHandler();
+
 	[Export]
 	public int Speed { get; set; } = 400; //player speed (pixels/sec).
 	
 	public Vector2 ScreenSize; //size of the game windows.
+
+	public void Start(Vector2 position)
+	{
+		Position = position;
+		Show();
+		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -63,7 +80,5 @@ public partial class Player : Area2D
 		{
 		 	animatedSprite2D.FlipH = false;
 		}
-
-		//Hide();
 	}
 }
