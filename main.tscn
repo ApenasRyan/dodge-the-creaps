@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://wubna5ccr3as"]
+
+[ext_resource type="Script" path="res://Enemy.cs" id="1_h0c1m"]
+[ext_resource type="PackedScene" uid="uid://ckrupim734yq7" path="res://Player.tscn" id="1_xroc5"]
+[ext_resource type="PackedScene" uid="uid://bf81bntudw3rq" path="res://enemy.tscn" id="2_1x4w5"]
+[ext_resource type="Script" path="res://Hub.cs" id="2_crpro"]
+[ext_resource type="FontFile" uid="uid://bm8t6bml22bxx" path="res://fonts/Xolonium-Regular.ttf" id="2_eqoh2"]
+
+[sub_resource type="Curve2D" id="Curve2D_oyyns"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_h0c1m")
+
+[node name="HUB" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 32.0
+offset_right = 249.0
+offset_bottom = 72.0
+script = ExtResource("2_crpro")
+
+[node name="ScoreLabel" type="Label" parent="HUB"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_right = 22.5
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_eqoh2")
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="MessageLabel" type="Label" parent="HUB"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = 224.0
+offset_right = 164.0
+offset_bottom = 343.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_eqoh2")
+theme_override_font_sizes/font_size = 64
+text = "Dodge the
+  creeps!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="HUB"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = 418.0
+offset_right = 120.0
+offset_bottom = 504.0
+theme_override_fonts/font = ExtResource("2_eqoh2")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="HUB"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("1_xroc5")]
+position = Vector2(408, 80)
+
+[node name="Enemy" parent="." instance=ExtResource("2_1x4w5")]
+position = Vector2(0, 16)
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 450)
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_oyyns")
+
+[node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
+
+[connection signal="Hit" from="Player" to="." method="game_over"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="dodge-the-creaps"
-run/main_scene="res://Area_2d.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
