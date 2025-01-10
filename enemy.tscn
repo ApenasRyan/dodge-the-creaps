@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf81bntudw3rq"]
+
+[ext_resource type="Script" path="res://Enemy.cs" id="1_0u600"]
+[ext_resource type="Texture2D" uid="uid://d1u6064wx2s2r" path="res://art/enemyFlyingAlt_1.png" id="1_msfyl"]
+[ext_resource type="Texture2D" uid="uid://b8mimifwti72j" path="res://art/enemyFlyingAlt_2.png" id="2_lgx3e"]
+[ext_resource type="Texture2D" uid="uid://dp5pcx5tcllw8" path="res://art/enemySwimming_1.png" id="3_tfsc4"]
+[ext_resource type="Texture2D" uid="uid://dtlyii0wdsf3" path="res://art/enemySwimming_2.png" id="4_hymlu"]
+[ext_resource type="Texture2D" uid="uid://dg04hhacbtkob" path="res://art/enemyWalking_1.png" id="5_n6abf"]
+[ext_resource type="Texture2D" uid="uid://n4ul66ktko8s" path="res://art/enemyWalking_2.png" id="6_kpvf8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4nx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_msfyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lgx3e")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tfsc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hymlu")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_n6abf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kpvf8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1n7e"]
+radius = 37.0
+height = 82.0
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_0u600")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+position = Vector2(79, 61)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_i4nx4")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(79, 63)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_h1n7e")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="RigidBody2D"]
+position = Vector2(19, 28)
